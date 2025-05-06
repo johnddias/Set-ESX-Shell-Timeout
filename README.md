@@ -1,2 +1,8 @@
-# Set-ESX-Shell-Timeout
-PowerShell script to set ESXi and SSH shell timeouts across vSphere clusters.
+# Set-ESXi-AccessTimeouts.ps1
+
+This PowerShell script connects to a vCenter Server and sets timeout values for:
+
+- **ESXi Shell (DCUI)** via `UserVars.ESXiShellTimeOut`
+- **SSH Shell sessions** via `UserVars.ESXiShellInteractiveTimeOut`
+
+... (truncated for brevity)
