@@ -25,3 +25,62 @@ Run the script without parameters to be prompted for all required input:
 
 ```powershell
 .\Set-ESXi-AccessTimeouts.ps1
+```
+
+### Semi-Automated
+
+Provide most parameters but securely prompt for password:
+
+```powershell
+.\Set-ESXi-AccessTimeouts.ps1 `
+    -vCenter vcsa.lab.local `
+    -User administrator@vsphere.local `
+    -ShellTimeoutMinutes 30 `
+    -SshTimeoutMinutes 60 `
+    -ClusterName "All"
+```
+
+### Fully Automated
+
+Provide all inputs up front (note: only use plain text passwords if you're in a secure context):
+
+```powershell
+.\Set-ESXi-AccessTimeouts.ps1 `
+    -vCenter vcsa.lab.local `
+    -User administrator@vsphere.local `
+    -Password VMware123! `
+    -ShellTimeoutMinutes 30 `
+    -SshTimeoutMinutes 60 `
+    -ClusterName "ProdCluster"
+```
+
+---
+
+## 🔧 Settings Applied
+
+| Setting Name                            | Affected Component | Description                            |
+|----------------------------------------|---------------------|----------------------------------------|
+| `UserVars.ESXiShellTimeOut`            | DCUI shell          | Timeout for the local ESXi Shell       |
+| `UserVars.ESXiShellInteractiveTimeOut` | SSH shell           | Timeout for remote SSH sessions        |
+
+Timeouts are input in **minutes**, but stored in **seconds** on the host.
+
+---
+
+## 📄 Files Included
+
+- `Set-ESXi-AccessTimeouts.ps1` – Main script
+- `README.md` – Usage documentation
+- `LICENSE` – MIT License
+
+---
+
+## 📬 Contributions
+
+Feel free to fork, submit issues, or contribute enhancements via PR.
+
+---
+
+## 📝 License
+
+MIT License. See `LICENSE` file for details.
